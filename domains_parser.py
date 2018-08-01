@@ -2,7 +2,6 @@ import sys
 
 
 def get_second_level_domains(result_lines, cert_domain_string):
-    print "Get second level domain and/or wildcard SSL domain from certification"
     domains = cert_domain_string.split(",")
 
     tmp_domains = []
@@ -27,7 +26,6 @@ def get_second_level_domains(result_lines, cert_domain_string):
         result_lines.append(domain)
 
 def get_domains(result_lines, cert_domain_string):
-    print "Get all domains from certification"
     domains = cert_domain_string.split(",")
 
     tmp_domains = []
@@ -61,6 +59,10 @@ with open(sys.argv[1], "r") as f:
 work_id = sys.argv[2] # - "1" to get second level domains, - "2" to get domains
 result_file = sys.argv[3]
 
+if work_id == "1":
+    print "Get second level domain and/or wildcard SSL domain from certification"
+if work_id == "2":
+    print "Get all domains from certification"
 # the result of our work
 result_lines = []
 
